@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .continer {
+            /* text-align: center; */
+            background-color: cornflowerblue;
+            height: 250px;
+        }
+        
+        input {
+            border-radius: 5px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 50px;
+            padding-left: 50px;
+        }
+        /* #cel {
+            padding: 10px 5px;
+        } */
+        
+        label {
+            font-size: 20px;
+            padding: 10px;
+            color: chartreuse;
+        }
+        
+        button {
+            margin: 10px 0px;
+            padding: 7px 15px;
+            font-weight: bolder;
+            border-radius: 5px;
+            box-shadow: 3px 5px 7px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="continer">
+        <label for="cel">Celsius Scale.</label>
+        <input oninput="change()" type="number" value="" id="cel" />
+        <!-- <button>Convert</button><br /> -->
+        <label for="fer">Farenheit Scale.</label>
+        <input type="number" value="" id="fer" />
+    </div>
+</body>
+<script>
+    let cel = document.querySelector("#cel");
+    let fer = document.querySelector("#fer");
+    let btn = document.querySelector("button");
+
+    function change() {
+        fer.value = ((cel.value * 9 + 160) / 5).toFixed(3);
+    }
+    fer.addEventListener("input", () => {
+        cel.value = ((fer.value * 5 - 160) / 9).toFixed(3);
+    });
+</script>
+
+</html>
